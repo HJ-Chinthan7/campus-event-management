@@ -5,6 +5,15 @@ const path = require('path');
 const database = require('./database/database');
 const startServer = require('./database/dbInitializer');
 
+const authRoutes = require('./routes/auth');
+const eventRoutes = require('./routes/events');
+const studentRoutes = require('./routes/students');
+const registrationRoutes = require('./routes/registrations');
+const attendanceRoutes = require('./routes/attendance');
+const feedbackRoutes = require('./routes/feedback');
+const reportRoutes = require('./routes/reports');
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,6 +26,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
+app.use('/api/auth', authRoutes);
+app.use('/api/events', eventRoutes);
+app.use('/api/students', studentRoutes);
+app.use('/api/registrations', registrationRoutes);
+app.use('/api/attendance', attendanceRoutes);
+app.use('/api/feedback', feedbackRoutes);
+app.use('/api/reports', reportRoutes);
 
 
 startServer(app,PORT);

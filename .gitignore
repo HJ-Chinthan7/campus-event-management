@@ -1,14 +1,8 @@
 /client
 /server/node_modules
-/server/routes/attendance.js
-/server/routes/auth.js
-/server/routes/events.js
-/server/routes/feedback.js
-/server/routes/registrations.js
-/server/routes/reports.js
-/server/routes/students.js
-/server/middleware/auth.js
+
 campus_events.db
 DESIGN_DOCUMENT.md
 README.md
 SAMPLE_REPORTS.md
+help.md
