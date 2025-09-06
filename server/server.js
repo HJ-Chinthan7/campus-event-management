@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const database = require('./database/database');
 const startServer = require('./database/dbInitializer');
-
+const dotenv = require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const eventRoutes = require('./routes/events');
 const studentRoutes = require('./routes/students');

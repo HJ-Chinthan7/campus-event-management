@@ -1,13 +1,12 @@
 const jwt = require('jsonwebtoken');
-const database = require('../config/database');
+const database = require('../database/database');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
 
 const generateToken = (id) => {
-    return jwt.sign(id, JWT_SECRET, { 
-        expiresIn: '24h' 
-    });
+    const token=jwt.sign({_id:id},JWT_SECRET,{expiresIn:"24h"});
+    return token;
 };
 
 const verifyToken = (token) => {

@@ -1,6 +1,7 @@
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const tokenMangager = require('../utils/tokenManager');
+const database = require('../database/database');
 module.exports.registerStudent=async (req, res) => {
     
     try {
