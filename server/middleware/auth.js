@@ -1,23 +1,29 @@
 const jwt = require('jsonwebtoken');
 const database = require('../database/database');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
-
+const JWT_SECRET = process.env.JWT_SECRET || 'onetwothreefourfive_updated_2024_campus_events';
 
 const authenticateStudent = async (req, res, next) => {
     try {
-        const token=req.headers['authorization'].split(' ')[1];
+        const authHeader = req.headers['authorization'];
+        const token = authHeader && authHeader.split(' ')[1];
         
-        if(!token) return res.status(401).json({ error: 'student access required' });
-        const decoded = jwt.verify(token, JWT_SECRET);
+        if (!token) return res.status(401).json({ error: 'Access token required' });
         
-        if (decoded.type !== 'student') {
-            return res.status(403).json({ error: 'Student access required' });
+        const blacklistedToken = await database.get(
+            'SELECT 1 FROM jwt_blacklist WHERE token = ?',
+            [token]
+        );
+
+        if (blacklistedToken) {
+            return res.status(401).json({ error: 'Token has been revoked' });
         }
         
+        const decoded = jwt.verify(token, JWT_SECRET);
+        
         const student = await database.get(
-            'SELECT * FROM students WHERE id = ?',
-            [decoded.id]
+            'SELECT * FROM users WHERE id = ? AND role = "student"',
+            [decoded._id]
         );
         
         if (!student) {
@@ -32,21 +38,27 @@ const authenticateStudent = async (req, res, next) => {
     }
 };
 
- 
 const authenticateAdmin = async (req, res, next) => {
     try {
+        const authHeader = req.headers['authorization'];
+        const token = authHeader && authHeader.split(' ')[1];
         
-        const token=req.headers['authorization'].split(' ')[1];
-        if(!token) return res.status(401).json({ error: 'Admin access required' });
-        const decoded = jwt.verify(token, JWT_SECRET);
+        if (!token) return res.status(401).json({ error: 'Access token required' });
         
-        if (decoded.type !== 'admin') {
-            return res.status(403).json({ error: 'Admin access required' });
+        const blacklistedToken = await database.get(
+            'SELECT 1 FROM jwt_blacklist WHERE token = ?',
+            [token]
+        );
+
+        if (blacklistedToken) {
+            return res.status(401).json({ error: 'Token has been revoked' });
         }
         
+        const decoded = jwt.verify(token, JWT_SECRET);
+        
         const admin = await database.get(
-            'SELECT * FROM admins WHERE id = ?',
-            [decoded.id]
+            'SELECT * FROM users WHERE id = ? AND role = "admin"',
+            [decoded._id]
         );
         
         if (!admin) {
@@ -61,23 +73,7 @@ const authenticateAdmin = async (req, res, next) => {
     }
 };
 
-const requireAdmin = (req, res, next) => {
-    if (req.user.type !== 'admin') {
-        return res.status(403).json({ error: 'Admin access required' });
-    }
-    next();
-};
-
-const requireStudent = (req, res, next) => {
-    if (req.user.type !== 'student') {
-        return res.status(403).json({ error: 'Student access required' });
-    }
-    next();
-};
-
-
 module.exports = {
-    authenticateToken,
-    requireAdmin,
-    requireStudent
+    authenticateAdmin,
+    authenticateStudent
 };
