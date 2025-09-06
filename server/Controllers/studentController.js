@@ -1,7 +1,7 @@
 const database = require("../database/database");
 
 
-exports.getAllStudents = async (req, res) => {
+module.exports.getAllStudents = async (req, res) => {
   try {
     const students = await database.all(
       "SELECT id, student_id, name, email, phone, department, year FROM students WHERE college_id = ?",
@@ -17,7 +17,7 @@ exports.getAllStudents = async (req, res) => {
 
 
 
-exports.getStudentById = async (req, res) => {
+module.exports.getStudentById = async (req, res) => {
   try {
     const { studentId } = req.params;
 
@@ -38,7 +38,7 @@ exports.getStudentById = async (req, res) => {
 };
 
 
-exports.updateStudent = async (req, res) => {
+module.exports.updateStudent = async (req, res) => {
   try {
     const { studentId } = req.params;
     const { name, phone, department, year } = req.body;
@@ -65,7 +65,7 @@ exports.updateStudent = async (req, res) => {
 };
 
 
-exports.deleteStudent = async (req, res) => {
+module.exports.deleteStudent = async (req, res) => {
   try {
     const { studentId } = req.params;
 

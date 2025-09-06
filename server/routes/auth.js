@@ -1,6 +1,7 @@
 const express = require('express');
 const userController = require('../Controllers/userController');
 const {body}= require('express-validator');
+const { authenticateAdmin, authenticateStudent } = require('../middleware/auth');
 const router = express.Router();
 
 
@@ -22,4 +23,7 @@ router.post('/student/login',[body("email").isEmail().notEmpty().withMessage("In
 router.post('/admin/login',[body("email").isEmail().notEmpty().withMessage("Invalid Email"),
     body("password").isLength({min: 8}).notEmpty().withMessage("Password must be at least 8 characters long")],userController.adminLogin);
 
+    router.post('/admin/logout', authenticateAdmin, userController.adminLogout);
+
+router.post('/student/logout', authenticateStudent, userController.studentLogout);
 module.exports = router;

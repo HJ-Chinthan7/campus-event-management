@@ -1,4 +1,6 @@
-exports.markAttendanceBulk = async (req, res) => {
+const database = require('../database/database');
+
+module.exports.markAttendanceBulk = async (req, res) => {
   try {
     const { eventId } = req.params;
     const { attendanceData } = req.body; 
@@ -9,7 +11,7 @@ exports.markAttendanceBulk = async (req, res) => {
 
     const event = await database.get(
       'SELECT * FROM events WHERE id = ? AND college_id = ?',
-      [eventId, req.user.college_id]
+      [eventId, req.admin.college_id]
     );
     if (!event) {
       return res.status(404).json({ error: 'Event not found' });
@@ -59,13 +61,13 @@ exports.markAttendanceBulk = async (req, res) => {
 
 
 
-exports.getEventAttendanceReport = async (req, res) => {
+module.exports.getEventAttendanceReport = async (req, res) => {
   try {
     const { eventId } = req.params;
 
     const event = await database.get(
       'SELECT * FROM events WHERE id = ? AND college_id = ?',
-      [eventId, req.user.college_id]
+      [eventId, req.admin.college_id]
     );
     if (!event) {
       return res.status(404).json({ error: 'Event not found' });
@@ -90,7 +92,7 @@ exports.getEventAttendanceReport = async (req, res) => {
       [eventId]
     );
 
-    const attendanceList = await database.all(
+    const attendanceList = await database.query(
       `
       SELECT 
         s.id,

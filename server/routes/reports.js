@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const reportController = require('../controllers/reportController');
-const authenticateAdmin = require('../middleware/auth'); 
+const reportController = require('../Controllers/reportController');
+const {authenticateAdmin} = require('../middleware/auth'); 
 
 router.get('/events', authenticateAdmin, reportController.getEventStats);
 

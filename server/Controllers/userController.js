@@ -111,13 +111,14 @@ module.exports.adminLogin=async (req, res) => {
         if (!admin) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
-
+console.log(admin)
         const isValidPassword = await bcrypt.compare(password, admin.password_hash);
+        console.log(isValidPassword);
         if (!isValidPassword) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        const token = generateToken(admin.id);
+        const token = tokenMangager.generateToken(admin.id);
         res.cookie('token', token, { expiresIn: '1h' });
 
         res.json({
@@ -136,3 +137,33 @@ module.exports.adminLogin=async (req, res) => {
     }
 };
 
+
+
+module.exports.adminLogout = async (req, res) => {
+    try {
+        const token = req.cookies.token || req.header('Authorization')?.replace('Bearer ', '');
+        if (!token) return res.status(400).json({ success: false, message: 'No token found' });
+
+        //await database.run(`INSERT INTO token_blacklist (token) VALUES (?)`, [token]);
+
+        res.clearCookie('token');
+        res.json({ success: true, message: 'Logged out successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+};
+
+module.exports.studentLogout = async (req, res) => {
+    try {
+        const token = req.cookies.token || req.header('Authorization')?.replace('Bearer ', '');
+        if (!token) return res.status(400).json({ success: false, message: 'No token found' });
+
+        //await database.run(`INSERT INTO token_blacklist (token) VALUES (?)`, [token]);
+        res.clearCookie('token');
+        res.json({ success: true, message: 'Logged out successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+};

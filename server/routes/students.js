@@ -1,8 +1,8 @@
 
 const express = require("express");
 const router = express.Router();
-const studentController = require("../controllers/studentController");
-const { authenticateAdmin } = require("../middleware/auth");
+const studentController = require("../Controllers/studentController");
+const {authenticateAdmin}  = require("../middleware/auth");
 
 
 router.get("/", authenticateAdmin, studentController.getAllStudents);

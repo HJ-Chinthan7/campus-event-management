@@ -9,11 +9,6 @@ const generateToken = (id) => {
     return token;
 };
 
-const verifyToken = (token) => {
-    return jwt.verify(token, JWT_SECRET);
-};
-
-
 const isTokenBlacklisted = async (token) => {
     const result = await database.get(
         'SELECT * FROM blacklisted_tokens WHERE token = ?',
@@ -32,7 +27,6 @@ const blacklistToken = async (token) => {
 
 module.exports = {
     generateToken,
-    verifyToken,
     isTokenBlacklisted,
     blacklistToken
 };

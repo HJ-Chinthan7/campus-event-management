@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 
-router.post('/mark/:eventId',                  
+router.put('/mark/:eventId',                  
   authenticateAdmin, 
   attendanceController.markAttendanceBulk
 );
