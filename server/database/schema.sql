@@ -115,13 +115,14 @@ INSERT OR IGNORE INTO colleges (id, name, code) VALUES
 (10, 'DemoCollege10', 'CS000AS10');
 
 INSERT OR IGNORE INTO admins (id, college_id, name, email, password_hash, role) VALUES 
-(1, 1, 'DemoCollege1 Admin', 'admin@democollege1.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(2, 2, 'DemoCollege2 Admin', 'admin@democollege2.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(3, 3, 'DemoCollege3 Admin', 'admin@democollege3.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(4, 4, 'DemoCollege4 Admin', 'admin@democollege4.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(5, 5, 'DemoCollege5 Admin', 'admin@democollege5.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(6, 6, 'DemoCollege6 Admin', 'admin@democollege6.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(7, 7, 'DemoCollege7 Admin', 'admin@democollege7.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(8, 8, 'DemoCollege8 Admin', 'admin@democollege8.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(9, 9, 'DemoCollege9 Admin', 'admin@democollege9.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
-(10, 10, 'DemoCollege10 Admin', 'admin@democollege10.edu', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+INSERT OR IGNORE INTO admins (id, college_id, name, email, password_hash, role) VALUES 
+(1, 1, 'DemoCollege1 Admin', 'admin@democollege1.edu', '$2a$10$K9J8H7G6F5D4S3A2Q1W0eUvKjHgFdSaQwErTyUiOpAsDfGhJkLzXc', 'admin'),
+(2, 2, 'DemoCollege2 Admin', 'admin@democollege2.edu', '$2a$10$L1M2N3B4V5C6X7Z8A9S0dFgHjKlQwErTyUiOpAsDfGhJkLzXcVbNm', 'admin'),
+(3, 3, 'DemoCollege3 Admin', 'admin@democollege3.edu', '$2a$10$P4Q5R6T7Y8U9I0O1P2A3sEtYuIoPlKjHgFdSaQwErTyUiOpAsDfGh', 'admin'),
+(4, 4, 'DemoCollege4 Admin', 'admin@democollege4.edu', '$2a$10$X7C8V9B0N1M2Q3W4E5R6tYhUjMkLoPlKjHgFdSaQwErTyUiOpAsD', 'admin'),
+(5, 5, 'DemoCollege5 Admin', 'admin@democollege5.edu', '$2a$10$Z1A2S3D4F5G6H7J8K9L0qWeRtYuIoPlKjHgFdSaQwErTyUiOpAsD', 'admin'),
+(6, 6, 'DemoCollege6 Admin', 'admin@democollege6.edu', '$2a$10$Q9W8E7R6T5Y4U3I2O1P0mNbVcXzAsDfGhJkLqWeRtYuIoPlKjHgF', 'admin'),
+(7, 7, 'DemoCollege7 Admin', 'admin@democollege7.edu', '$2a$10$A5S4D3F2G1H0J9K8L7M6nBvCxZqWeRtYuIoPlKjHgFdSaQwErTy', 'admin'),
+(8, 8, 'DemoCollege8 Admin', 'admin@democollege8.edu', '$2a$10$R3T2Y1U0I9O8P7A6S5D4fGhJkLzXcVbNmQwErTyUiOplKjHgFdSa', 'admin'),
+(9, 9, 'DemoCollege9 Admin', 'admin@democollege9.edu', '$2a$10$E6R5T4Y3U2I1O0P9A8S7dFgHjKlZxCvBnMqWeRtYuIoPlKjHgFdS', 'admin'),
+(10, 10, 'DemoCollege10 Admin', 'admin@democollege10.edu', '$2a$10$W9Q8E7R6T5Y4U3I2O1P0zXcVbNmAsDfGhJkLqWeRtYuIoPlKjHgF', 'admin');

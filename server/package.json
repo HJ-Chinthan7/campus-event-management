@@ -13,19 +13,27 @@
     "setup": "npm run install-all"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "sqlite3": "^5.1.6",
-    "cors": "^2.8.5",
-    "body-parser": "^1.20.2",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-validator": "^7.2.1",
     "jsonwebtoken": "^9.0.2",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1",
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.1"
   },
-  "keywords": ["campus", "events", "management", "react", "express", "sqlite"],
+  "keywords": [
+    "campus",
+    "events",
+    "management",
+    "react",
+    "express",
+    "sqlite"
+  ],
   "author": "Campus Event Management Team",
   "license": "MIT"
 }
