@@ -68,6 +68,12 @@ it displays the recent events and their status
 - **Admin Portal**: `http://localhost:5173/admin/login`
 - **Student App**: `http://localhost:5173/student/login`
 
+
+
+## HOSTED URL LINK
+- https://aquamarine-pothos-f5748b.netlify.app/    hosted in netlify frontend
+- backend hosted on render link  https://campus-event-management-0hsd.onrender.com
+
 ##  Demo Credentials
 
 ### Admin Login
@@ -137,11 +143,14 @@ it displays the recent events and their status
 - comments
 - Student participation tracking
 
-#### Set environment variables:
+## Set environment variables in server :
 
 
 - export JWT_SECRET=your-secure-jwt-secret
 - export PORT=5000
+
+## Set environment variables in client :
+- VITE_APP_BASE_URL=https://campus-event-management-0hsd.onrender.com
 
 ### security features
 - JWT token authentication
