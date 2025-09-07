@@ -71,13 +71,28 @@ it displays the recent events and their status
 ##  Demo Credentials
 
 ### Admin Login
-- **Email**: `admin@techuniv.edu`
-- **Password**: `password`
+- **Email**: 
+- **Password**: 
+    - admin@democollege1.edu
+    - Admin1Pass!
 
+    - admin@democollege2.edu
+    - Admin2Pass!
+
+    - admin@democollege3.edu
+    - Admin3Pass!
+
+    - admin@democollege4.edu
+    - Admin4Pass!
+    
+    - admin@democollege5.edu
+    - Admin5Pass!
 ### Student Login
-- **Email**: `john.doe@student.techuniv.edu`
-- **Password**: `password123`
-
+- **Email**: 
+- **Password**:
+    - demo01@gmail.com
+    - password123
+   
 ## Note:
  in the usercontroller as of now i had  not implemented the blacklisttoken table and its token checking mechanism  .i am using blacklisted token to prevent  discarded token from being used as login .blacklistedtoken table is based on ttl .
 
