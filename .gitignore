@@ -7,6 +7,9 @@
 /client/dist-ssr
 
 # Environment variables
+.env
+server/env
+server/.env
 server/.env
 server/.env.local
 server/.env.development.local
@@ -94,8 +97,7 @@ temp/
 *.sw?
 
 # Documentation
-DESIGN_DOCUMENT.md
-README.md
+
 SAMPLE_REPORTS.md
 help.md
 client/tailwind.config.js
@@ -103,3 +105,4 @@ client/vite.config.js
 client/README.md
 client/postcss.config.js
 client/eslint.config.js
+server/.env

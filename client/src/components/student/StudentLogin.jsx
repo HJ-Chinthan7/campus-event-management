@@ -94,11 +94,6 @@ const StudentLogin = () => {
             </button>
           </form>
 
-          <div className="mt-6 text-sm text-gray-600 text-center">
-            <p>Demo Credentials:</p>
-            <p>Email: john.doe@student.techuniv.edu</p>
-            <p>Password: password123</p>
-          </div>
 
           <div className="mt-6 text-center">
             <Link
