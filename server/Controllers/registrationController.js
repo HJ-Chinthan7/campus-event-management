@@ -18,9 +18,9 @@ const status="active";
         }
 
         await db.run(
-            `INSERT INTO event_registrations (event_id, student_id) VALUES (?, ?)`,
-            [eventId, studentId]
-        );
+  `INSERT INTO event_registrations (event_id, student_id, status) VALUES (?, ?, "registered")`,
+  [eventId, studentId]
+);
 
         await db.run(
             `UPDATE events SET current_registrations = current_registrations + 1 WHERE id = ?`,
@@ -38,7 +38,7 @@ const status="active";
 };
 
 
-module.exports.getRegistrationsForEvent = async (req, res) => {
+module.exports.getRegisteredStudents = async (req, res) => {
     try {
         const collegeId = req.admin.college_id;
         const eventId = req.params.eventId;

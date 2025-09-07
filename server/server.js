@@ -13,7 +13,7 @@ const registrationRoutes = require('./routes/registrations');
 const attendanceRoutes = require('./routes/attendance');
 const feedbackRoutes = require('./routes/feedback');
 const reportRoutes = require('./routes/reports');
-
+const collegeRoutes = require('./routes/collegeRoutes');
 
 
 const app = express();
@@ -34,7 +34,7 @@ app.use('/api/registrations', registrationRoutes);
 app.use('/api/attendance', attendanceRoutes);
 app.use('/api/feedback', feedbackRoutes);
 app.use('/api/reports', reportRoutes);
-
+app.use('/api/colleges', collegeRoutes);
 
 startServer(app,PORT);
 app.use((err, req, res, next) => {

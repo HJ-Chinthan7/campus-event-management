@@ -10,7 +10,7 @@ class Database {
 
     async initialize() {
         return new Promise((resolve, reject) => {
-            // Create database directory if it doesn't exist
+            
             const dbDir = path.dirname(this.dbPath);
             if (!fs.existsSync(dbDir)) {
                 fs.mkdirSync(dbDir, { recursive: true });
@@ -45,7 +45,7 @@ class Database {
         });
     }
 
-    // Generic query method
+ 
     async query(sql, params = []) {
         return new Promise((resolve, reject) => {
             this.db.all(sql, params, (err, rows) => {
@@ -58,7 +58,7 @@ class Database {
         });
     }
 
-    // Generic run method for INSERT, UPDATE, DELETE
+   
     async run(sql, params = []) {
         return new Promise((resolve, reject) => {
             this.db.run(sql, params, function(err) {
@@ -84,7 +84,7 @@ class Database {
         });
     }
 
-    // Close database connection
+  
     close() {
         if (this.db) {
             this.db.close((err) => {

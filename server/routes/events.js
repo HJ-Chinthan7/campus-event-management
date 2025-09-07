@@ -6,10 +6,10 @@ const {authenticateAdmin} = require('../middleware/auth');
 
 router.post('/', authenticateAdmin, eventController.createEvent);
 
-router.get('/', eventController.listEvents);
+router.get('/:collegeId', eventController.listEvents);
 
 
-router.get('/:eventId', eventController.getEventById);
+router.get('/admin/:eventId', eventController.getEventById);
 
 
 router.put('/:eventId', authenticateAdmin, eventController.updateEvent);

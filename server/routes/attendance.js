@@ -17,7 +17,7 @@ router.get('/report/:eventId',
   attendanceController.getEventAttendanceReport
 );
 
-
+router.get('/my-attendance/:id', authenticateStudent, attendanceController.getMyAttendance);
 module.exports = router;
 
 

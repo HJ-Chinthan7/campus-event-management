@@ -67,15 +67,18 @@ CREATE TABLE IF NOT EXISTS event_registrations (
 );
 
 
-CREATE TABLE IF NOT EXISTS attendance (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    event_id INTEGER NOT NULL,
-    student_id INTEGER NOT NULL,
-    check_in_time DATETIME DEFAULT CURRENT_TIMESTAMP,
-    status VARCHAR(20) DEFAULT 'present' CHECK (status IN ('present', 'absent')),
-    FOREIGN KEY (event_id) REFERENCES events(id),
-    FOREIGN KEY (student_id) REFERENCES students(id),
-    UNIQUE(event_id, student_id)
+
+DROP TABLE IF EXISTS attendance;
+
+CREATE TABLE attendance (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  event_id INTEGER NOT NULL,
+  student_id INTEGER NOT NULL,
+  status TEXT CHECK(status IN ('present','absent')),
+  check_in_time TEXT DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(event_id, student_id), 
+  FOREIGN KEY(event_id) REFERENCES events(id) ON DELETE CASCADE,
+  FOREIGN KEY(student_id) REFERENCES students(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS feedback (

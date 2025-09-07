@@ -22,12 +22,16 @@ module.exports.createEvent = async (req, res) => {
 };
 module.exports.listEvents = async (req, res) => {
     try {
-        const events = await db.query(
-            `SELECT e.*, a.name as created_by_name
-             FROM events e
-             JOIN admins a ON e.created_by = a.id
-             ORDER BY e.date ASC, e.time ASC`
-        );
+        const {collegeId} =req.params;
+      const events = await db.query(
+    `SELECT e.*, a.name as created_by_name
+     FROM events e
+     JOIN admins a ON e.created_by = a.id
+     WHERE e.college_id = ?
+     ORDER BY e.date ASC, e.time ASC`,
+    [collegeId]
+);
+
 
         res.json({ success: true, events });
     } catch (err) {

@@ -6,8 +6,8 @@ const {authenticateAdmin,authenticateStudent} = require('../middleware/auth');
 router.post('/:eventId', authenticateStudent, feedbackController.submitFeedback);
 
 
-router.get('/:eventId', authenticateAdmin, feedbackController.getFeedbackForEvent);
+router.get('/:admin/all', authenticateAdmin, feedbackController.getFeedbackForEvent);
 
-router.get('/student/all', authenticateStudent, feedbackController.getStudentFeedbacks);
+router.get('/student/all/:studentid', authenticateStudent, feedbackController.getStudentFeedbacks);
 
 module.exports = router;
