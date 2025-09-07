@@ -91,7 +91,7 @@ it displays the recent events and their status
 - **Email**: 
 - **Password**:
     - demo01@gmail.com
-    - password123
+    - 123456789
    
 ## Note:
  in the usercontroller as of now i had  not implemented the blacklisttoken table and its token checking mechanism  .i am using blacklisted token to prevent  discarded token from being used as login .blacklistedtoken table is based on ttl .
