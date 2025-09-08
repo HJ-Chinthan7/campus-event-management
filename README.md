@@ -74,6 +74,10 @@ it displays the recent events and their status
 - https://aquamarine-pothos-f5748b.netlify.app/    hosted in netlify frontend
 - backend hosted on render link  https://campus-event-management-0hsd.onrender.com
 
+- ##NOTE for Live Demo Link
+- As backend is hosted on render and due to use of sqlLite ,sometimes due to restart of backend the sql files stored might get deleted so at that time please create new student credentials via Student Registration
+
+- 
 ##  Demo Credentials
 
 ### Admin Login
